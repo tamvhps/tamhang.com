@@ -32,20 +32,20 @@ import anime from 'animejs/lib/anime.es.js';
 //     duration: 800
 // });
 
-anime({
-    targets: '.image-man',
-    translateX: -350, // -> '250px'
-    rotate: 360, // -> '540deg'
-    delay: 1000
-});
-anime({
-    targets: '.image-woman',
-    translateX: 350, // -> '250px'
-    rotate: 360, // -> '540deg'
-    delay: 1000,
-    endDelay: 1000,
-    direction: 'alternate',
-});
+// anime({
+//     targets: '.image-man',
+//     translateX: -350, // -> '250px'
+//     rotate: 360, // -> '540deg'
+//     delay: 1000
+// });
+// anime({
+//     targets: '.image-woman',
+//     translateX: 350, // -> '250px'
+//     rotate: 360, // -> '540deg'
+//     delay: 1000,
+//     endDelay: 1000,
+//     direction: 'alternate',
+// });
 
 // setupCounter(document.querySelector('#counter'))
 
@@ -58,4 +58,25 @@ const lightbox = new PhotoSwipeLightbox({
     showHideAnimationType: 'none',
     pswpModule: () => import('photoswipe')
 });
-lightbox.init();
+lightbox.init()
+
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+const activeNavbar = document.getElementById("events");
+const navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = activeNavbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+    if (window.scrollY >= sticky) {
+        navbar.classList.add("sticky");
+        navbar.classList.remove("absolute");
+    } else {
+        navbar.classList.add("absolute");
+        navbar.classList.remove("sticky");
+    }
+}

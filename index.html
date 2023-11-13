@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -10,8 +10,153 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   </head>
   <body class="antialiased text-neutral-700">
+    <nav id="navbar" class="w-full z-50 top-0 [&.sticky]:bg-white [&.sticky]:shadow-sm absolute [&.absolute]:py-7 group hidden sm:block">
+      <ul class="flex justify-center flex-row" x-data="{ navigation: {home: {text: 'Trang chủ', href: '#'}, /*event: {text: 'Sự kiện', href: '#events'},*/ place: {text: 'Địa điểm', href: '#places'}, album: {text: 'Ảnh cưới', href: '#album'}, bank: {text: 'Mừng cưới', href: '#qr'}} }">
+        <template x-for="item in navigation">
+          <li>
+            <a href="#" class="block py-4 px-7 text-white hover:text-white capitalize font-normal group-[.sticky]:text-neutral-900" x-text="item.text" x-bind:href="item.href">Trang chủ</a>
+          </li>
+        </template>
+      </ul>
+    </nav>
+    <div class="sm:hidden fixed bottom-0 left-0 w-full bg-[#0d1222] z-50">
+      <div class="grid grid-cols-4">
+        <a href="#" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
+          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+          <span class="text-xs mt-0.5">Trang chủ</span>
+        </a>
+<!--        <a href="#events" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">-->
+<!--          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>-->
+<!--          <span class="text-xs mt-0.5">Sự kiện</span>-->
+<!--        </a>-->
+        <a href="#places" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
+          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
+          <span class="text-xs mt-0.5">Địa điểm</span>
+        </a>
+        <a href="#album" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
+          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M360-400h400L622-580l-92 120-62-80-108 140Zm-40 160q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg>
+          <span class="text-xs mt-0.5">Ảnh cưới</span>
+        </a>
+        <a href="#qr" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
+          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m80-80 200-560 360 360L80-80Zm132-132 282-100-182-182-100 282Zm370-246-42-42 224-224q32-32 77-32t77 32l24 24-42 42-24-24q-14-14-35-14t-35 14L582-458ZM422-618l-42-42 24-24q14-14 14-34t-14-34l-26-26 42-42 26 26q32 32 32 76t-32 76l-24 24Zm80 80-42-42 144-144q14-14 14-35t-14-35l-64-64 42-42 64 64q32 32 32 77t-32 77L502-538Zm160 160-42-42 64-64q32-32 77-32t77 32l64 64-42 42-64-64q-14-14-35-14t-35 14l-64 64ZM212-212Z"/></svg>
+          <span class="text-xs mt-0.5">Mừng cưới</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="relative pt-[80px] sm:pt-[230px] pb-[440px] bg-[#171c30]">
+      <div class="bg-[url('images/pattern-1.png')] bg-no-repeat bg-center bg-cover absolute top-0 left-0 h-full w-full"></div>
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <div class="relative mb-6 uppercase tracking-[3px] text-white leading-10 text-lg sm:text-xl">Save Our Date - 19.11.2023</div>
+          <div class="relative flex flex-col sm:flex-row justify-center items-center mb-9 text-white font-['Great_Vibes'] xl:text-8xl lg:text-7xl md:text-6xl text-5xl">
+            <span>Đinh Hằng</span>
+            <span class="sm:mx-4 sm:my-0 my-4 bg-[url('images/icon-heart.png')] bg-contain bg-no-repeat bg-center xl:w-[124px] xl:h-[112px] lg:w-[100px] lg:h-[90px] md:w-[90px] md:h-[81px] sm:w-[80px] sm:h-[72px] w-[100px] h-[90px]"></span>
+            <span>Hữu Tâm</span>
+          </div>
+          <div class="relative text-white capitalize">
+            <p class="tracking-wide mb-1 font-bold text-lg md:text-2xl sm:text-xl">Tổ chức tại tư gia nhà gái</p>
+            <p class="tracking-wider text-base md:text-xl sm:text-lg">Thôn Thạch Hà, X.Liên Hà, H.Lâm Hà, Lâm Đồng</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative pt-0 mt-[-275px]">
+      <div class="relative w-full flex items-center justify-center flex-col">
+        <div class="relative">
+          <img src="images/countdown-2.png" alt="Countdown">
+        </div>
+      </div>
+      <div class="mt-8 pb-14">
+        <div class="flex items-center justify-center px-5 py-5" x-data="beer()" x-init="start()">
+          <div class="text-yellow-100">
+            <div class="text-4xl md:text-6xl sm:text-5xl text-center flex w-full items-center justify-center">
+              <div class="w-16 sm:w-24 mx-1 sm:mx-3 p-2 bg-neutral-800 text-white rounded-lg">
+                <div class="font-mono leading-none" x-text="days">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Ngày</div>
+              </div>
+              <div class="w-16 sm:w-24 mx-1 sm:mx-3 p-2 bg-neutral-800 text-white rounded-lg">
+                <div class="font-mono leading-none" x-text="hours">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Giờ</div>
+              </div>
+              <div class="w-16 sm:w-24 mx-1 sm:mx-3 p-2 bg-neutral-800 text-white rounded-lg">
+                <div class="font-mono leading-none" x-text="minutes">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Phút</div>
+              </div>
+              <div class="w-16 sm:w-24 mx-1 sm:mx-3 p-2 bg-neutral-800 text-white rounded-lg">
+                <div class="font-mono leading-none" x-text="seconds">00</div>
+                <div class="font-mono uppercase text-sm leading-none">Giây</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+            function beer() {
+                return {
+                    seconds: '00',
+                    minutes: '00',
+                    hours: '00',
+                    days: '00',
+                    distance: 0,
+                    countdown: null,
+                    beerTime: new Date('Nov 19 2023 11:30:00').getTime(),
+                    now: new Date().getTime(),
+                    start: function() {
+                        this.countdown = setInterval(() => {
+                            // Calculate time
+                            this.now = new Date().getTime();
+                            this.distance = this.beerTime - this.now;
+                            // Set Times
+                            this.days = this.padNum( Math.floor(this.distance / (1000*60*60*24)) );
+                            this.hours = this.padNum( Math.floor((this.distance % (1000*60*60*24)) / (1000*60*60)) );
+                            this.minutes = this.padNum( Math.floor((this.distance % (1000*60*60)) / (1000*60)) );
+                            this.seconds = this.padNum( Math.floor((this.distance % (1000*60)) / 1000) );
+                            // Stop
+                            if (this.distance < 0) {
+                                clearInterval(this.countdown);
+                                this.days = '00';
+                                this.hours = '00';
+                                this.minutes = '00';
+                                this.seconds = '00';
+                            }
+                        },100);
+                    },
+                    padNum: function(num) {
+                        var zero = '';
+                        for (var i = 0; i < 2; i++) {
+                            zero += '0';
+                        }
+                        return (zero + num).slice(-2);
+                    }
+                }
+            }
+        </script>
+      </div>
+    </div>
+<!--    <div id="events" class="pb-16">-->
+<!--      <div class="container mx-auto sm:px-4 px-10 lg:w-2/3">-->
+<!--        <div class="grid grid-cols-1 gap-8">-->
+<!--          <div class="relative border-4 border-neutral-200">-->
+<!--            <div class="bg-[url('images/flowers-4.png')] bg-no-repeat absolute top-[-25px] right-[-40px] w-[206px] h-[200px]"></div>-->
+<!--            <div class="bg-[url('images/flowers-4-2.png')] bg-no-repeat absolute bottom-[-25px] left-[-40px] w-[206px] h-[200px]"></div>-->
+<!--            <div class="px-[140px] py-[60px]">-->
+<!--              <p class="font-['Great_Vibes'] text-center capitalize font-bold text-neutral-800 mb-6 text-6xl">Lễ Vu Quy</p>-->
+<!--              <p class="text-xl capitalize font-bold mb-1">Hôn lễ được cử hành tại tư gia</p>-->
+<!--              <p>Vào lúc 09:00 Ngày 19.11.2023</p>-->
+<!--              <p class="italic text-neutral-500">Nhằm ngày 07-10 Năm Quý mão</p>-->
+<!--              <p>19.11.2023</p>-->
+<!--              <p>19.11.2023</p>-->
+<!--              <p>19.11.2023</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 <!--    <div>-->
 <!--      <div class="relative h-screen w-screen flex items-center justify-center">-->
 <!--  -->
@@ -33,19 +178,7 @@
 <!--      </div>-->
 <!--    </div>-->
 
-    <nav class="fixed w-full z-50 top-0">
-      <div class="flex flex-wrap items-center justify-center mx-auto p-4">
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0" x-data="{ navigation: {home: {text: 'Trang chủ', href: '#'}, event: {text: 'Sự kiện', href: '#'}, place: {text: 'Địa điểm', href: '#'}, album: {text: 'Ảnh cưới', href: '#'}, bank: {text: 'Mừng cưới', href: '#'}} }">
-            <template x-for="item in navigation">
-              <li>
-                <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent uppercase" x-text="item.text" x-bind:href="item.href">Trang chủ</a>
-              </li>
-            </template>
-          </ul>
-        </div>
-      </div>
-    </nav>
+
     <div class="relative w-full h-screen hidden">
 <!--      <div class="absolute left-0 top-0 bg-[url('/images/HIP_9967.jpg')] bg-[top_center] bg-no-repeat bg-cover min-w-full min-h-full"></div>-->
       <div class="bg">
@@ -54,17 +187,18 @@
       <div class="absolute z-10 w-full h-full bg-black opacity-50"></div>
     </div>
 
-    <div class="bg-slate-100">
+    <div id="places" class="bg-slate-100">
       <div class="container mx-auto py-16 sm:py-24 px-4">
         <div class="text-center mb-12 capitalize">
-          <h2 class="text-4xl font-bold text-neutral-800">Địa điểm tổ chức tiệc cưới</h2>
-          <p class="text-neutral-600 mt-2">Nơi tổ chức tiệc cưới của gia đình cô dâu và chú rể</p>
+          <h2 class="text-5xl font-bold text-neutral-800 font-['Dancing_Script']">Địa điểm</h2>
+          <p class="text-neutral-600 mt-2">Nơi tổ chức tiệc cưới của gia đình cô dâu</p>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
           <div class="bg-white p-8 rounded shadow-sm">
             <div class="mb-4">
-              <div class="font-bold uppercase text-neutral-500 tracking-wide">Nhà gái</div>
+<!--              <div class="font-bold uppercase text-neutral-500 tracking-wide">Nhà gái</div>-->
               <div class="text-xl font-bold text-neutral-800 mb-2">Tổ chức tại Tư Gia</div>
+              <div class="font-medium">Vào lúc 11:30 - Ngày 19.11.2023</div>
               <div>
                 <span class="font-bold hidden sm:inline">Địa chỉ:</span>
                 <span>Thôn Thạch Hà, X.Liên Hà, H.Lâm Hà, Lâm Đồng</span>
@@ -76,29 +210,29 @@
             </div>
             <iframe class="h-[300px] 2xl:h-[450px] xl:h-[400px] md:h-[350px] w-full" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3907.1474461673615!2d108.149597!3d11.683961000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQxJzAyLjMiTiAxMDjCsDA4JzU4LjYiRQ!5e0!3m2!1svi!2s!4v1699722413423!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <div class="bg-white p-8 rounded shadow-sm">
-            <div class="mb-4">
-              <div class="font-bold uppercase text-neutral-500 tracking-wide">Nhà trai</div>
-              <div class="text-xl font-bold text-neutral-800 mb-2">Tổ chức tại nhà hàng Royal Center</div>
-              <div>
-                <span class="font-bold hidden sm:inline">Địa chỉ:</span>
-                <span>180 Đ. Song Hành, Trung Mỹ Tây, Hóc Môn, Thành phố Hồ Chí Minh</span>
-              </div>
-              <div>
-                <span class="font-bold hidden sm:inline">Google Maps:</span>
-                <a class="break-all" href="https://maps.app.goo.gl/ycCuPNz6ykvQEeWH8" target="_blank">https://maps.app.goo.gl/ycCuPNz6ykvQEeWH8</a>
-              </div>
-            </div>
-            <iframe class="h-[300px] 2xl:h-[450px] xl:h-[400px] md:h-[350px] w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.3879521441386!2d106.6072658245259!3d10.858068792755017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bfccf85d229%3A0x59227f0f88a603c0!2sRoyal%20Center!5e0!3m2!1svi!2s!4v1699725350198!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+<!--          <div class="bg-white p-8 rounded shadow-sm">-->
+<!--            <div class="mb-4">-->
+<!--              <div class="font-bold uppercase text-neutral-500 tracking-wide">Nhà trai</div>-->
+<!--              <div class="text-xl font-bold text-neutral-800 mb-2">Tổ chức tại nhà hàng Royal Center</div>-->
+<!--              <div>-->
+<!--                <span class="font-bold hidden sm:inline">Địa chỉ:</span>-->
+<!--                <span>180 Đ. Song Hành, Trung Mỹ Tây, Hóc Môn, Thành phố Hồ Chí Minh</span>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <span class="font-bold hidden sm:inline">Google Maps:</span>-->
+<!--                <a class="break-all" href="https://maps.app.goo.gl/ycCuPNz6ykvQEeWH8" target="_blank">https://maps.app.goo.gl/ycCuPNz6ykvQEeWH8</a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <iframe class="h-[300px] 2xl:h-[450px] xl:h-[400px] md:h-[350px] w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.3879521441386!2d106.6072658245259!3d10.858068792755017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bfccf85d229%3A0x59227f0f88a603c0!2sRoyal%20Center!5e0!3m2!1svi!2s!4v1699725350198!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
 
 
-    <div class="container mx-auto py-20 sm:py-24 px-4">
+    <div id="album" class="container mx-auto py-20 sm:py-24 px-4">
       <div class="text-center mb-12 capitalize">
-        <h2 class="text-4xl font-bold text-neutral-800">Album ảnh cưới</h2>
+        <h2 class="text-5xl font-bold text-neutral-800 font-['Dancing_Script']">Album ảnh cưới</h2>
         <p class="text-neutral-600 mt-2">Cùng nhau lưu giữ những khoảnh khăc đẹp và ý nghĩa trong cuộc đời</p>
       </div>
       <div id="image-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -174,10 +308,10 @@
 
     </div>
 
-    <div class="bg-gray-100">
+    <div id="qr" class="bg-gray-100">
       <div class="container mx-auto py-20 sm:py-24 pb-16 lg:pb-20 px-4">
         <div class="text-center mb-12 capitalize">
-          <h2 class="text-4xl font-bold text-neutral-800">Mừng cưới</h2>
+          <h2 class="text-5xl font-bold text-neutral-800 font-['Dancing_Script']">Mừng cưới</h2>
           <p class="text-neutral-600 mt-2">Gửi những lời chúc đến cô dâu và chú rể</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
