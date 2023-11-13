@@ -6,28 +6,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
-  <body>
-  <div>
-    <div class="relative h-screen w-screen flex items-center justify-center">
+  <body class="antialiased text-neutral-700">
+<!--    <div>-->
+<!--      <div class="relative h-screen w-screen flex items-center justify-center">-->
+<!--  -->
+<!--          <div class="flex justify-center items-center text-white bg-amber-600 w-[300px] h-[300px] rounded-full z-10">-->
+<!--            <span>Hữu Tâm</span>-->
+<!--            <span>Đinh Hằng</span>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <div class="absolute top-[calc(50%-100px)] left-[calc(50%-100px)] image-man bg-amber-600 w-[200px] h-[200px] rounded-full">-->
+<!--  -->
+<!--            </div>-->
+<!--          </div>-->
+<!--  -->
+<!--        <div>-->
+<!--          <div class="absolute top-[calc(50%-100px)] left-[calc(50%-100px)] image-woman bg-amber-600 w-[200px] h-[200px] rounded-full">-->
+<!--  -->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
-        <div class="flex justify-center items-center text-white bg-amber-600 w-[300px] h-[300px] rounded-full z-10">
-          <span>Hữu Tâm</span>
-          <span>Đinh Hằng</span>
+    <nav class="fixed w-full z-50 top-0">
+      <div class="flex flex-wrap items-center justify-center mx-auto p-4">
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+          <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0" x-data="{ navigation: {home: {text: 'Trang chủ', href: '#'}, event: {text: 'Sự kiện', href: '#'}, place: {text: 'Địa điểm', href: '#'}, album: {text: 'Ảnh cưới', href: '#'}, bank: {text: 'Mừng cưới', href: '#'}} }">
+            <template x-for="item in navigation">
+              <li>
+                <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent uppercase" x-text="item.text" x-bind:href="item.href">Trang chủ</a>
+              </li>
+            </template>
+          </ul>
         </div>
-        <div>
-          <div class="absolute top-[calc(50%-100px)] left-[calc(50%-100px)] image-man bg-amber-600 w-[200px] h-[200px] rounded-full">
+      </div>
+    </nav>
+    <div class="relative w-full h-screen hidden">
+<!--      <div class="absolute left-0 top-0 bg-[url('/images/HIP_9967.jpg')] bg-[top_center] bg-no-repeat bg-cover min-w-full min-h-full"></div>-->
+      <div class="bg">
+        <img src="images/HIP_9967.jpg" alt="" class="absolute">
+      </div>
+      <div class="absolute z-10 w-full h-full bg-black opacity-50"></div>
+    </div>
 
+    <div class="bg-slate-100">
+      <div class="container mx-auto py-16 sm:py-24 px-4">
+        <div class="text-center mb-12 capitalize">
+          <h2 class="text-4xl font-bold text-neutral-800">Địa điểm tổ chức tiệc cưới</h2>
+          <p class="text-neutral-600 mt-2">Nơi tổ chức tiệc cưới của gia đình cô dâu và chú rể</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-white p-8 rounded shadow-sm">
+            <div class="mb-4">
+              <div class="font-bold uppercase text-neutral-500 tracking-wide">Nhà gái</div>
+              <div class="text-xl font-bold text-neutral-800 mb-2">Tổ chức tại Tư Gia</div>
+              <div>
+                <span class="font-bold hidden sm:inline">Địa chỉ:</span>
+                <span>Thôn Thạch Hà, X.Liên Hà, H.Lâm Hà, Lâm Đồng</span>
+              </div>
+              <div>
+                <span class="font-bold hidden sm:inline">Google Maps:</span>
+                <a class="break-all" href="https://maps.app.goo.gl/RMvoH2XsV6xWjTvp6" target="_blank">https://maps.app.goo.gl/RMvoH2XsV6xWjTvp6</a>
+              </div>
+            </div>
+            <iframe class="h-[300px] 2xl:h-[450px] xl:h-[400px] md:h-[350px] w-full" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3907.1474461673615!2d108.149597!3d11.683961000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQxJzAyLjMiTiAxMDjCsDA4JzU4LjYiRQ!5e0!3m2!1svi!2s!4v1699722413423!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-        </div>
-
-      <div>
-        <div class="absolute top-[calc(50%-100px)] left-[calc(50%-100px)] image-woman bg-amber-600 w-[200px] h-[200px] rounded-full">
-
+          <div class="bg-white p-8 rounded shadow-sm">
+            <div class="mb-4">
+              <div class="font-bold uppercase text-neutral-500 tracking-wide">Nhà trai</div>
+              <div class="text-xl font-bold text-neutral-800 mb-2">Tổ chức tại nhà hàng Royal Center</div>
+              <div>
+                <span class="font-bold hidden sm:inline">Địa chỉ:</span>
+                <span>180 Đ. Song Hành, Trung Mỹ Tây, Hóc Môn, Thành phố Hồ Chí Minh</span>
+              </div>
+              <div>
+                <span class="font-bold hidden sm:inline">Google Maps:</span>
+                <a class="break-all" href="https://maps.app.goo.gl/ycCuPNz6ykvQEeWH8" target="_blank">https://maps.app.goo.gl/ycCuPNz6ykvQEeWH8</a>
+              </div>
+            </div>
+            <iframe class="h-[300px] 2xl:h-[450px] xl:h-[400px] md:h-[350px] w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.3879521441386!2d106.6072658245259!3d10.858068792755017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bfccf85d229%3A0x59227f0f88a603c0!2sRoyal%20Center!5e0!3m2!1svi!2s!4v1699725350198!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+
+    <div class="container mx-auto py-20 sm:py-24 px-4">
+      <div class="text-center mb-12 capitalize">
+        <h2 class="text-4xl font-bold text-neutral-800">Album ảnh cưới</h2>
+        <p class="text-neutral-600 mt-2">Cùng nhau lưu giữ những khoảnh khăc đẹp và ý nghĩa trong cuộc đời</p>
+      </div>
+      <div id="image-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid gap-4">
+          <div>
+            <a href="images/galaxy/photo-1-1600x2400.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="2400">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-1-610x768.jpg"  alt="Photo 1"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-2-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-2-610x500.jpg"  alt="Photo 2"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-3-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-3-610x566.jpg"  alt="Photo 3"/>
+            </a>
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <a href="images/galaxy/photo-4-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-4-610x598.jpg"  alt="Photo 4"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-5-1600x2400.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="2400">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-5-610x854.jpg"  alt="Photo 5"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-6-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-6-610x382.jpg"  alt="Photo 6"/>
+            </a>
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <a href="images/galaxy/photo-7-1600x2400.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="2400">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-7-610x850.jpg"  alt="Photo 7"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-8-1600x2400.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="2400">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-8-610x464.jpg"  alt="Photo 8"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-9-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-9-610x520.jpg"  alt="Photo 9"/>
+            </a>
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <a href="images/galaxy/photo-10-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-10-610x422.jpg"  alt="Photo 10"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-11-1600x2400.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="2400">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-11-610x1024.jpg"  alt="Photo 7"/>
+            </a>
+          </div>
+          <div>
+            <a href="images/galaxy/photo-12-1600x1067.jpg" target="_blank" data-pswp-width="1600" data-pswp-height="1067">
+              <img class="h-auto max-w-full rounded-lg" src="images/galaxy/photo-12-610x388.jpg"  alt="Photo 12"/>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-gray-100">
+      <div class="container mx-auto py-20 sm:py-24 pb-16 lg:pb-20 px-4">
+        <div class="text-center mb-12 capitalize">
+          <h2 class="text-4xl font-bold text-neutral-800">Mừng cưới</h2>
+          <p class="text-neutral-600 mt-2">Gửi những lời chúc đến cô dâu và chú rể</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="sm:flex bg-white p-8 rounded">
+            <div class="md:w-1/4 sm:w-4/12 sm:mb-0 mb-6">
+              <img class="sm:w-full w-10/12 mx-auto" src="images/1699687291070.png" alt="QR Vietcombank" />
+            </div>
+            <div class="md:w-3/4 sm:w-8/12 sm:pl-8 w-10/12 mx-auto">
+              <div class="text-xl font-medium mb-2 text-neutral-800">Gửi lời chúc đến cô dâu</div>
+              <div class="font-bold">Hong Leong Bank</div>
+              <div class="font-normal mb-5">Ngân hàng TNHH MTV Hong Leong Việt Nam</div>
+              <div class="text-2xl font-bold text-neutral-950">111010000093015</div>
+              <div class="text-xl font-medium text-neutral-800 uppercase mt-0.5">Đinh Thị Hằng</div>
+            </div>
+          </div>
+          <div class="sm:flex bg-white p-8 rounded">
+            <div class="md:w-1/4 sm:w-4/12 sm:mb-0 mb-6">
+              <img class="sm:w-full w-10/12 mx-auto" src="images/1699687381999.png" alt="QR Vietcombank" />
+            </div>
+            <div class="md:w-3/4 sm:w-8/12 sm:pl-8 w-10/12 mx-auto">
+              <div class="text-xl font-medium mb-2 text-neutral-800">Gửi lời chúc đến chú rể</div>
+              <div class="font-bold">Vietcombank</div>
+              <div class="font-normal mb-5">Ngân hàng thương mại cổ phần Ngoại thương Việt Nam</div>
+              <div class="text-2xl font-bold text-neutral-950">0501000068491</div>
+              <div class="text-xl font-medium text-neutral-800 uppercase mt-0.5">Võ Hữu Tâm</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 lg:mt-16 bg-white p-8 w-full lg:w-2/3 mx-auto rounded shadow-md">
+          <p class="text-center italic text-neutral-600 mb-4"><span class="font-light text-xl text-neutral-500 leading-5">“</span>Hôn nhân không phải là đích đến của câu chuyện tình yêu, đó chính là khởi đầu của hành trình đi tìm hạnh phúc và niềm hạnh phúc lớn nhất trong cuộc đời chính là được cùng người mình yêu bước chung trên cùng một con đường.<span class="font-light text-xl text-neutral-500 leading-5">”</span></p>
+          <div class="mb-4">
+            <img class="w-32 mx-auto" src="images/invitation-icon-580x386.jpg" alt="Wedding Invitation" />
+          </div>
+          <p class="text-center font-medium">Dành tất cả chân thành và trân trọng xin kính gửi đến tất cả mọi người lời mời tham dự tiệc cưới của Tâm và Hằng. <br>Những nụ cười, lời nói, những lời chúc phúc, những cái ôm, những món quà ý nghĩa sẽ làm cho buổi hôn lễ trở nên tuyệt vời và ý nghĩa hơn bao giờ hết!</p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

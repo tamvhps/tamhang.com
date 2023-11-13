@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 // import { setupCounter } from './counter.js'
 import anime from 'animejs/lib/anime.es.js';
 
+
 // document.querySelector('#app').innerHTML = `
 //   <div>
 //     <a href="https://vitejs.dev" target="_blank">
@@ -46,4 +47,15 @@ anime({
     direction: 'alternate',
 });
 
-setupCounter(document.querySelector('#counter'))
+// setupCounter(document.querySelector('#counter'))
+
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
+const lightbox = new PhotoSwipeLightbox({
+    gallery: '#image-gallery',
+    children: 'a',
+    showHideAnimationType: 'none',
+    pswpModule: () => import('photoswipe')
+});
+lightbox.init();
