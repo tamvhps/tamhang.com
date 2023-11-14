@@ -2,11 +2,11 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Hằng & Tâm</title>
+<!--    <link rel="stylesheet" href="style.css">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -15,25 +15,25 @@
   </head>
   <body class="antialiased text-neutral-700">
     <nav id="navbar" class="w-full z-50 top-0 [&.sticky]:bg-white [&.sticky]:shadow-sm absolute [&.absolute]:py-7 group hidden sm:block">
-      <ul class="flex justify-center flex-row" x-data="{ navigation: {home: {text: 'Trang chủ', href: '#'}, /*event: {text: 'Sự kiện', href: '#events'},*/ place: {text: 'Địa điểm', href: '#places'}, album: {text: 'Ảnh cưới', href: '#album'}, bank: {text: 'Mừng cưới', href: '#qr'}} }">
+      <ul class="flex justify-center flex-row" x-data="{ navigation: {home: {text: 'Trang chủ', href: '#'}, event: {text: 'Sự kiện', href: '#events'}, place: {text: 'Địa điểm', href: '#places'}, album: {text: 'Ảnh cưới', href: '#album'}, bank: {text: 'Mừng cưới', href: '#qr'}} }">
         <template x-for="item in navigation">
           <li>
-            <a href="#" class="block py-4 px-7 text-white hover:text-white capitalize font-normal group-[.sticky]:text-neutral-900" x-text="item.text" x-bind:href="item.href">Trang chủ</a>
+            <a href="#" class="js-trigger block py-4 px-7 text-white hover:text-white capitalize font-normal group-[.sticky]:text-neutral-900" x-text="item.text" x-bind:href="item.href">Trang chủ</a>
           </li>
         </template>
       </ul>
     </nav>
     <div class="sm:hidden fixed bottom-0 left-0 w-full bg-[#0d1222] z-50">
-      <div class="grid grid-cols-4">
+      <div class="grid grid-cols-5">
         <a href="#" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
           <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
           <span class="text-xs mt-0.5">Trang chủ</span>
         </a>
-<!--        <a href="#events" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">-->
-<!--          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>-->
-<!--          <span class="text-xs mt-0.5">Sự kiện</span>-->
-<!--        </a>-->
-        <a href="#places" class="flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
+        <a href="#events" data-mt-duration="300" class="js-trigger flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
+          <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>
+          <span class="text-xs mt-0.5">Sự kiện</span>
+        </a>
+        <a href="#places" data-mt-duration="300" class="js-trigger flex flex-col justify-center items-center py-2 font-normal text-neutral-200 hover:text-white">
           <svg class="fill-neutral-200" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
           <span class="text-xs mt-0.5">Địa điểm</span>
         </a>
@@ -65,13 +65,13 @@
         </div>
       </div>
     </div>
-    <div class="relative pt-0 mt-[-275px]">
+    <div id="countdown" class="relative pt-0 mt-[-275px]">
       <div class="relative w-full flex items-center justify-center flex-col">
         <div class="relative">
-          <img src="images/countdown-2.png" alt="Countdown">
+          <img src="images/countdown-2.png" alt="Countdown" />
         </div>
       </div>
-      <div class="mt-8 pb-14">
+      <div class="mt-8">
         <div class="flex items-center justify-center px-5 py-5" x-data="beer()" x-init="start()">
           <div class="text-yellow-100">
             <div class="text-4xl md:text-6xl sm:text-5xl text-center flex w-full items-center justify-center">
@@ -138,53 +138,36 @@
         </script>
       </div>
     </div>
-<!--    <div id="events" class="pb-16">-->
-<!--      <div class="container mx-auto sm:px-4 px-10 lg:w-2/3">-->
-<!--        <div class="grid grid-cols-1 gap-8">-->
-<!--          <div class="relative border-4 border-neutral-200">-->
-<!--            <div class="bg-[url('images/flowers-4.png')] bg-no-repeat absolute top-[-25px] right-[-40px] w-[206px] h-[200px]"></div>-->
-<!--            <div class="bg-[url('images/flowers-4-2.png')] bg-no-repeat absolute bottom-[-25px] left-[-40px] w-[206px] h-[200px]"></div>-->
-<!--            <div class="px-[140px] py-[60px]">-->
-<!--              <p class="font-['Great_Vibes'] text-center capitalize font-bold text-neutral-800 mb-6 text-6xl">Lễ Vu Quy</p>-->
-<!--              <p class="text-xl capitalize font-bold mb-1">Hôn lễ được cử hành tại tư gia</p>-->
-<!--              <p>Vào lúc 09:00 Ngày 19.11.2023</p>-->
-<!--              <p class="italic text-neutral-500">Nhằm ngày 07-10 Năm Quý mão</p>-->
-<!--              <p>19.11.2023</p>-->
-<!--              <p>19.11.2023</p>-->
-<!--              <p>19.11.2023</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <div class="relative h-screen w-screen flex items-center justify-center">-->
-<!--  -->
-<!--          <div class="flex justify-center items-center text-white bg-amber-600 w-[300px] h-[300px] rounded-full z-10">-->
-<!--            <span>Hữu Tâm</span>-->
-<!--            <span>Đinh Hằng</span>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <div class="absolute top-[calc(50%-100px)] left-[calc(50%-100px)] image-man bg-amber-600 w-[200px] h-[200px] rounded-full">-->
-<!--  -->
-<!--            </div>-->
-<!--          </div>-->
-<!--  -->
-<!--        <div>-->
-<!--          <div class="absolute top-[calc(50%-100px)] left-[calc(50%-100px)] image-woman bg-amber-600 w-[200px] h-[200px] rounded-full">-->
-<!--  -->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
 
-
-    <div class="relative w-full h-screen hidden">
-<!--      <div class="absolute left-0 top-0 bg-[url('/images/HIP_9967.jpg')] bg-[top_center] bg-no-repeat bg-cover min-w-full min-h-full"></div>-->
-      <div class="bg">
-        <img src="images/HIP_9967.jpg" alt="" class="absolute">
+    <div id="events" class="py-16 sm:py-24 pb-16">
+      <div class="container mx-auto sm:px-4 px-10 2xl:w-6/12 lg:w-2/3">
+        <div class="grid grid-cols-1 gap-8">
+          <div class="relative border-4 border-neutral-200 text-center">
+            <div class="bg-[url('images/flowers-4.png')] bg-no-repeat absolute top-[-25px] right-[-40px] w-[206px] h-[200px]"></div>
+            <div class="bg-[url('images/flowers-4-2.png')] bg-no-repeat absolute bottom-[-25px] left-[-40px] w-[206px] h-[200px]"></div>
+            <div class="sm:px-[140px] sm:py-[60px] px-[40px] py-[60px]">
+              <p class="font-['Great_Vibes'] text-center capitalize font-bold text-neutral-800 mb-6 text-3xl sm:text-6xl">Lễ Vu Quy</p>
+              <p class="text-md sm:text-xl capitalize font-bold mb-1">Hôn lễ được cử hành tại tư gia</p>
+              <p class="mt-2 sm:mt-4 flex items-center justify-center flex-col sm:flex-row">
+                <span>Vào lúc <span class="mx-1 sm:mx-2 text-xl font-bold text-neutral-800">09:00</span></span>
+                <span>Ngày <span class="mx-1 sm:mx-2 text-xl font-bold text-neutral-800">19.11.2023</span></span>
+              </p>
+              <p class="italic text-neutral-500 sm:text-md text-sm capitalize">Nhằm ngày 07 tháng 10 Năm Quý mão</p>
+              <p class="mt-2 sm:mt-4 text-md sm:text-xl capitalize tracking-widest">Trân trọng kính mời</p>
+              <p class="uppercase text-lg sm:text-2xl font-bold text-[#b11c41]">Quý gia đình</p>
+              <p class="mt-4 sm:text-base text-sm">Đến dự buổi tiệc rượu chung vui cùng gia đình chúng tôi tại:</p>
+              <p class="font-['Dancing_Script'] text-2xl sm:text-3xl font-bold">Tư Gia Nhà Gái</p>
+              <p class="mt-2 sm:mt-4 flex items-center justify-center flex-col sm:flex-row">
+                <span>Vào lúc <span class="mx-1 sm:mx-2 text-xl font-bold text-neutral-800">11:30</span></span>
+                <span>Ngày <span class="mx-1 sm:mx-2 text-xl font-bold text-neutral-800">19.11.2023</span></span>
+              </p>
+              <p class="italic text-neutral-500 sm:text-md text-sm capitalize">Nhằm ngày 07 tháng 10 Năm Quý mão</p>
+              <p class="mt-4 tex-sm sm:text-base">Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi.</p>
+              <p class="mt-6 text-sm sm:text-xl font-bold uppercase">Trân Trọng Kính Mời!</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="absolute z-10 w-full h-full bg-black opacity-50"></div>
     </div>
 
     <div id="places" class="bg-slate-100">
@@ -230,7 +213,7 @@
     </div>
 
 
-    <div id="album" class="container mx-auto py-20 sm:py-24 px-4">
+    <div id="album" class="container mx-auto py-16 sm:py-24 px-4">
       <div class="text-center mb-12 capitalize">
         <h2 class="text-5xl font-bold text-neutral-800 font-['Dancing_Script']">Album ảnh cưới</h2>
         <p class="text-neutral-600 mt-2">Cùng nhau lưu giữ những khoảnh khăc đẹp và ý nghĩa trong cuộc đời</p>
@@ -309,7 +292,7 @@
     </div>
 
     <div id="qr" class="bg-gray-100">
-      <div class="container mx-auto py-20 sm:py-24 pb-16 lg:pb-20 px-4">
+      <div class="container mx-auto py-16 pb-20 sm:py-24 px-4">
         <div class="text-center mb-12 capitalize">
           <h2 class="text-5xl font-bold text-neutral-800 font-['Dancing_Script']">Mừng cưới</h2>
           <p class="text-neutral-600 mt-2">Gửi những lời chúc đến cô dâu và chú rể</p>
@@ -341,13 +324,13 @@
           </div>
         </div>
 
-        <div class="mt-8 lg:mt-16 bg-white p-8 w-full lg:w-2/3 mx-auto rounded shadow-md">
-          <p class="text-center italic text-neutral-600 mb-4"><span class="font-light text-xl text-neutral-500 leading-5">“</span>Hôn nhân không phải là đích đến của câu chuyện tình yêu, đó chính là khởi đầu của hành trình đi tìm hạnh phúc và niềm hạnh phúc lớn nhất trong cuộc đời chính là được cùng người mình yêu bước chung trên cùng một con đường.<span class="font-light text-xl text-neutral-500 leading-5">”</span></p>
-          <div class="mb-4">
-            <img class="w-32 mx-auto" src="images/invitation-icon-580x386.jpg" alt="Wedding Invitation" />
-          </div>
-          <p class="text-center font-medium">Dành tất cả chân thành và trân trọng xin kính gửi đến tất cả mọi người lời mời tham dự tiệc cưới của Tâm và Hằng. <br>Những nụ cười, lời nói, những lời chúc phúc, những cái ôm, những món quà ý nghĩa sẽ làm cho buổi hôn lễ trở nên tuyệt vời và ý nghĩa hơn bao giờ hết!</p>
-        </div>
+<!--        <div class="mt-8 lg:mt-16 bg-white p-8 w-full lg:w-2/3 mx-auto rounded shadow-md">-->
+<!--          <p class="text-center italic text-neutral-600 mb-4"><span class="font-light text-xl text-neutral-500 leading-5">“</span>Hôn nhân không phải là đích đến của câu chuyện tình yêu, đó chính là khởi đầu của hành trình đi tìm hạnh phúc và niềm hạnh phúc lớn nhất trong cuộc đời chính là được cùng người mình yêu bước chung trên cùng một con đường.<span class="font-light text-xl text-neutral-500 leading-5">”</span></p>-->
+<!--          <div class="mb-4">-->
+<!--            <img class="w-32 mx-auto" src="images/invitation-icon-580x386.jpg" alt="Wedding Invitation" />-->
+<!--          </div>-->
+<!--          <p class="text-center font-medium">Dành tất cả chân thành và trân trọng xin kính gửi đến tất cả mọi người lời mời tham dự tiệc cưới của Tâm và Hằng. <br>Những nụ cười, lời nói, những lời chúc phúc, những cái ôm, những món quà ý nghĩa sẽ làm cho buổi hôn lễ trở nên tuyệt vời và ý nghĩa hơn bao giờ hết!</p>-->
+<!--        </div>-->
       </div>
     </div>
     <script type="module" src="/main.js"></script>

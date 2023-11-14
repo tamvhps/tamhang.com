@@ -1,8 +1,8 @@
-// import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
+import './style.css'
+// import javascriptLogo from './javascript.svg'
+// import viteLogo from '/vite.svg'
 // import { setupCounter } from './counter.js'
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 
 
 // document.querySelector('#app').innerHTML = `
@@ -48,7 +48,11 @@ import anime from 'animejs/lib/anime.es.js';
 // });
 
 // setupCounter(document.querySelector('#counter'))
+import Alpine from 'alpinejs'
 
+window.Alpine = Alpine
+
+Alpine.start()
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
@@ -64,7 +68,7 @@ lightbox.init()
 window.onscroll = function() {myFunction()};
 
 // Get the navbar
-const activeNavbar = document.getElementById("events");
+const activeNavbar = document.getElementById("countdown");
 const navbar = document.getElementById("navbar");
 
 // Get the offset position of the navbar

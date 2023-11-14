@@ -6,10 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'main': "url('/images/background.jpg')",
-        // 'footer-texture': "url('/img/footer-texture.png')",
-      }
     },
   },
   plugins: [],
