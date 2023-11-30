@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo liên kết mời</title>
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+      function toBinary(string) {
+          const codeUnits = new Uint16Array(string.length);
+          for (let i = 0; i < codeUnits.length; i++) {
+              codeUnits[i] = string.charCodeAt(i);
+          }
+          return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
+      }
+      function fromBinary(encoded) {
+          const binary = atob(encoded);
+          const bytes = new Uint8Array(binary.length);
+          for (let i = 0; i < bytes.length; i++) {
+              bytes[i] = binary.charCodeAt(i);
+          }
+          return String.fromCharCode(...new Uint16Array(bytes.buffer));
+      }
+
+      let invitation = 'Quý Gia Đình';
+      if (urlParams.get('i')) {
+          invitation = fromBinary(urlParams.get('i'));
+      }
+      function getLink(heart) {
+          const root = location.protocol + '//' + location.host + '/?i=';
+          let name = document.querySelector('#name').value;
+          if (heart === true) {
+              name = name + ' + ❤';
+          }
+          if (!name) {
+              document.querySelector('#name-text').textContent = null;
+              document.querySelector('#link').value = null;
+          } else {
+              document.querySelector('#name-text').textContent = name;
+              document.querySelector('#link').value = root + toBinary(name);
+          }
+      }
+  </script>
+  <script>
+      function myFunction() {
+          var copyText = document.getElementById("link");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999);
+          navigator.clipboard.writeText(copyText.value);
+
+          var tooltip = document.getElementById("myTooltip");
+          tooltip.innerHTML = "Copied: " + copyText.value;
+      }
+
+      function outFunc() {
+          var tooltip = document.getElementById("myTooltip");
+          tooltip.innerHTML = "Copy to clipboard";
+      }
+  </script>
+  <style>
+      .tooltip {
+          position: relative;
+          display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 140px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 50%;
+          margin-left: -75px;
+          opacity: 0;
+          transition: opacity 0.3s;
+      }
+
+      .tooltip .tooltiptext::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #555 transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+      }
+  </style>
+</head>
+<body>
+  <div style="text-align: center;">
+    <div>
+      <input id="name" type="text" />
+    </div>
+    <div style="margin: 15px 0 0;">
+      <button type="button" onclick="getLink()">Lấy link</button>
+    </div>
+    <div style="margin: 15px 0 0;">
+      <button type="button" onclick="getLink(true)">Lấy link có trái tim</button>
+    </div>
+    <div style="margin: 20px 0 0;">
+      <div id="name-text"></div>
+      <textarea id="link" cols="30" rows="10"></textarea>
+    </div>
+    <div class="tooltip">
+      <button onclick="myFunction()" onmouseout="outFunc()">
+        <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+        Copy text
+      </button>
+    </div>
+  </div>
+</body>
+</html>
