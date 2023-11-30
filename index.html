@@ -59,7 +59,6 @@
           return String.fromCharCode(...new Uint16Array(bytes.buffer));
       }
       const urlParams = new URLSearchParams(window.location.search);
-      console.log(toBinary('A Thắng'))
       let invitation = 'Quý Gia Đình';
       if (urlParams.get('i')) {
           invitation = fromBinary(urlParams.get('i'));
